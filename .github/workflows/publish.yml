@@ -35,11 +35,36 @@ jobs:
         cache: 'yarn'
     - run: yarn install
     - run: yarn run build
+#     - run: cp "package.json" "./build/package.json"
+#     - run: yarn semantic-release
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+#     - run: cd build && npm publish
+
     - name: Semantic Release
       uses: codfish/semantic-release-action@v1
-      with:
-        # You can select another working directory like a subdirectory for example.
-        working_directory: ./build
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        
+        
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/
+      - run: yarn install
+      - run: yarn run build
+      - run: cp "package.json" "./build/package.json"
+      - run: cd build && npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
