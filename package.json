@@ -1,6 +1,6 @@
 {
   "name": "crypto-trade",
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "private": true,
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -28,7 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "semantic-release": "semantic-release"
   },
   "browserslist": {
     "production": [
@@ -49,6 +50,11 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^7.0.4",
     "prettier": "^2.5.1",
-    "sass": "^1.45.2"
+    "sass": "^1.45.2",
+    "semantic-release": "^18.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rbelmega/crypto-trade.git"
   }
 }
