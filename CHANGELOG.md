@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/rbelmega/crypto-trade/compare/v1.13.0...v1.14.0) (2022-01-04)
+
+
+### Features
+
+* setting up project ([d6457db](https://github.com/rbelmega/crypto-trade/commit/d6457db708a7cc20c8ee1275c8e234c278e23ad6))
+
 # [1.13.0](https://github.com/rbelmega/crypto-trade/compare/v1.12.0...v1.13.0) (2022-01-04)
 
 
