@@ -43,6 +43,10 @@ jobs:
         NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - run: cp "./build/package.json" "package.json"
     - run: |
+          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
+          git config user.name "rbelmeha"
+          git config user.email "belmega31@gmail.com"
+    - run: |
         git add package.json
         git commit -m "chore(release): package.json update [skip ci]"
         git push origin main
