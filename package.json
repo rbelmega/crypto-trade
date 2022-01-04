@@ -1,5 +1,5 @@
 {
-  "name": "crypto-trade",
+  "name": "@rbelmega/crypto-trade",
   "version": "0.0.0-development",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
