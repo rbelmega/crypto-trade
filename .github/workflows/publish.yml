@@ -22,7 +22,7 @@ jobs:
     - run: yarn install
     - run: yarn run lint
     - run: yarn test
-    
+
   semantic:
     runs-on: ubuntu-latest
     needs: [setup]
@@ -34,12 +34,13 @@ jobs:
         node-version: 16
         cache: 'yarn'
     - run: yarn install
-    - run: yarn run build
+    - run: yarn run buil
+    - run: zip -r build.zip build
     - run: yarn semantic-release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
-        
+        NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   publish-gpr:
     needs: [semantic]
     runs-on: ubuntu-latest
