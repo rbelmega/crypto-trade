@@ -20,5 +20,6 @@ jobs:
         node-version: 16
         cache: 'npm'
     - run: yarn install
+      working-directory: client
     - run: yarn run lint
     - run: yarn test
