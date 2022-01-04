@@ -36,6 +36,7 @@ jobs:
     - run: yarn install
     - run: yarn run build
     - name: Semantic Release
+      uses: codfish/semantic-release-action@v1
       with:
         # You can select another working directory like a subdirectory for example.
         working_directory: ./build
