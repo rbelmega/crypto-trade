@@ -10,11 +10,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-
+  setup:
     runs-on: ubuntu-latest
-
-
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js 16
@@ -23,5 +20,5 @@ jobs:
         node-version: 16
         cache: 'npm'
     - run: yarn install
-    - run: yarn run build
+    - run: yarn run lint
     - run: yarn test
