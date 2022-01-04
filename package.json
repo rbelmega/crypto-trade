@@ -1,7 +1,6 @@
 {
   "name": "crypto-trade",
   "version": "0.0.0-development",
-  "private": true,
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
