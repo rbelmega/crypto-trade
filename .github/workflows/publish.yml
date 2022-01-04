@@ -35,3 +35,10 @@ jobs:
         cache: 'yarn'
     - run: yarn install
     - run: yarn run build
+    - name: Semantic Release
+      with:
+        # You can select another working directory like a subdirectory for example.
+        working_directory: ./build
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
