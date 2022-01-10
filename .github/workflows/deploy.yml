@@ -21,4 +21,12 @@ jobs:
           always-auth: true
           registry-url: https://npm.pkg.github.com
       - run: npm i @rbelmega/crypto-trade@${{ github.event.inputs.tag }}
+      
+      - name: Deploying to S3
+        uses: Reggionick/s3-deploy@v3.1.1
+        with:
+          folder: node_modules/@rbelmega/crypto-trade
+          bucket: ${{ secrets.S3_BUCKET }}
+
+
        
