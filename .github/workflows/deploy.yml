@@ -27,6 +27,8 @@ jobs:
         with:
           folder: node_modules/@rbelmega/crypto-trade
           bucket: ${{ secrets.S3_BUCKET }}
+          bucket-region: ${{ secrets.S3_BUCKET_REGION }}
+
 
 
        
