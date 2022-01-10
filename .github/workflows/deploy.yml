@@ -10,5 +10,12 @@ jobs:
   prepare:
     runs-on: ubuntu-latest
     steps:
-      - run: |
+     - name: checks out code
+       uses: actions/checkout@v2
+     - name: Use Node.js
+       uses: actions/setup-node@v1
+       with:
+         always-auth: true
+         registry-url: https://npm.pkg.github.com
+     - run: |
           npm i @rbelmega/crypto-trade@${{ github.event.inputs.tag }}
