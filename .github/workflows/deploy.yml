@@ -1,4 +1,4 @@
-name: Deploy workflow
+name: deploy
 on:
   workflow_dispatch:
     inputs:
@@ -7,8 +7,8 @@ on:
         required: true
 
 jobs:
-  say_hello:
+  prepare:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "Hello ${{ github.event.inputs.tag }}!"
+          npm i @rbelmega/crypto-trade@${{ github.event.inputs.tag }}
