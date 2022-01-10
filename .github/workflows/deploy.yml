@@ -1,0 +1,14 @@
+name: Deploy workflow
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to be deployed'
+        required: true
+
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Hello ${{ github.event.inputs.tag }}!"
