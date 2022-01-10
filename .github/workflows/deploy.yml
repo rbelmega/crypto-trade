@@ -1,8 +1,8 @@
 name: deploy
 on:
-	workflow_dispatch:
-		inputs:
-			tag:
+  workflow_dispatch:
+    inputs:
+      tag:
         description: 'Tag to be deployed'
         required: true
 
@@ -10,14 +10,14 @@ jobs:
   prepare:
     runs-on: ubuntu-latest
     steps:
-     - name: checks out code
-       uses: actions/checkout@v2
-     - name: Use Node.js
-       uses: actions/setup-node@v1
-       with:
-         always-auth: true
-         registry-url: https://npm.pkg.github.com
-     - run: npm i @rbelmega/crypto-trade@${{ github.event.inputs.tag }}
-		   env:
-			   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-			   NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: checks out code
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          always-auth: true
+          registry-url: https://npm.pkg.github.com
+      - run: npm i @rbelmega/crypto-trade@${{ github.event.inputs.tag }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
