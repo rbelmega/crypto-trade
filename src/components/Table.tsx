@@ -76,14 +76,11 @@ export default function DataTable() {
 
     setConnection(socket);
 
-    socket.onopen = function () {
-      socket.send("WS opened");
-    };
-
     socket.onmessage = function (event: MessageEvent) {
       let data: any;
       try {
         data = JSON.parse(event.data);
+        data = data.data ? JSON.parse(data.data) : data;
       } catch {
         data = null;
       }
@@ -93,7 +90,7 @@ export default function DataTable() {
       setSnack((state: any) => ({
         ...state,
         open: true,
-        message: data?.message,
+        message: data?.selectedItems,
         accepted: data?.accepted,
       }));
     };
@@ -116,11 +113,14 @@ export default function DataTable() {
     console.log(placedItems);
     connection.send(
       JSON.stringify({
-        uuid,
-        message: selectedItems.map((id: any) => ({
-          crypto: rowsMap[id].symbol,
-          value: placedItems[id] || [400, 2000],
-        })),
+        action: "sendmessage",
+        data: JSON.stringify({
+          uuid,
+          selectedItems: selectedItems.map((id: any) => ({
+            crypto: rowsMap[id].symbol,
+            value: placedItems[id] || [400, 2000],
+          })),
+        }),
       })
     );
   };
@@ -128,8 +128,11 @@ export default function DataTable() {
   const handleInGame = () => {
     connection.send(
       JSON.stringify({
-        uuid: uuid,
-        accepted: `User ${uuid} interested in your placement`,
+        action: "sendmessage",
+        data: JSON.stringify({
+          uuid,
+          accepted: `User ${uuid} interested in your placement`,
+        }),
       })
     );
   };
