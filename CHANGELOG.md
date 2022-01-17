@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/rbelmega/crypto-trade/compare/v1.19.0...v1.20.0) (2022-01-17)
+
+
+### Features
+
+* application deployment ([1113d96](https://github.com/rbelmega/crypto-trade/commit/1113d96e5aa1a577a8566dbd2640f2f2652c86f6))
+
 # [1.19.0](https://github.com/rbelmega/crypto-trade/compare/v1.18.0...v1.19.0) (2022-01-17)
 
 
