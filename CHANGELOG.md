@@ -1,3 +1,10 @@
+# [1.24.0](https://github.com/rbelmega/crypto-trade/compare/v1.23.0...v1.24.0) (2022-01-30)
+
+
+### Features
+
+* **JIRA-TICKET:** application deployment ([d32694d](https://github.com/rbelmega/crypto-trade/commit/d32694d87729cd4e93a4e8e2ddc237927dece4a7))
+
 # [1.23.0](https://github.com/rbelmega/crypto-trade/compare/v1.22.0...v1.23.0) (2022-01-30)
 
 
