@@ -41,8 +41,8 @@ jobs:
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        - run: cp "./build/package.json" "package.json"
         - run: |
+            cp "./build/package.json" "package.json"
             git config user.name "${{ secrets.USERNAME }}"
             git config user.email "${{ secrets.USEREMAIL }}"
             git add package.json
