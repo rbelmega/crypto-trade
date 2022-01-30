@@ -5,7 +5,7 @@
   ],
   "plugins": ["unused-imports", "import", "prettier"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier":  ["error", { "endOfLine": "auto" }],
     "import/order": ["error", {"groups": ["external", "index", "sibling", "parent", "internal", "builtin", "object", "type"]}],
     "no-unused-vars": "off",
     "unused-imports/no-unused-imports": "error",
