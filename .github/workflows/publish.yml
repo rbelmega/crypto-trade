@@ -27,6 +27,13 @@ jobs:
       runs-on: ubuntu-latest
       needs: [setup]
       steps:
+        - uses: actions/checkout@v2
+        - name: Use Node.js 16
+          uses: actions/setup-node@v2
+          with:
+            node-version: 16
+            cache: 'yarn'
+        - run: yarn install
         - run: yarn run build
         - run: cp "package.json" "./build/package.json"
         - run: zip -r build.zip build
@@ -36,8 +43,8 @@ jobs:
             NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         - run: cp "./build/package.json" "package.json"
         - run: |
-            git config user.name "rbelmeha"
-            git config user.email "belmega31@gmail.com"
+            git config user.name "${{ secrets.USERNAME }}"
+            git config user.email "${{ secrets.USEREMAIL }}"
         - run: |
             git add package.json
             git commit -m "chore(release): package.json update [skip ci]"

@@ -1,0 +1,53 @@
+## This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+## For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+#
+#name: Node.js CI
+#
+#on:
+#  push:
+#    branches: [ main ]
+#  pull_request:
+#    branches: [ main ]
+#
+#jobs:
+#  setup:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: Use Node.js 16
+#      uses: actions/setup-node@v2
+#      with:
+#        node-version: 16
+#        cache: 'yarn'
+#    - run: yarn install
+#    - run: yarn run lint
+#    - run: yarn test
+#
+#  semantic-release:
+#    runs-on: ubuntu-latest
+#    needs: [setup]
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: Use Node.js 16
+#      uses: actions/setup-node@v2
+#      with:
+#        node-version: 16
+#        cache: 'yarn'
+#    - run: yarn install
+#    - run: yarn run build
+#    - run: cp "package.json" "./build/package.json"
+#    - run: zip -r build.zip build
+#    - run: yarn semantic-release
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#    - run: cp "./build/package.json" "package.json"
+#    - run: |
+#          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
+#          git config user.name "rbelmeha"
+#          git config user.email "belmega31@gmail.com"
+#    - run: |
+#        git add package.json
+#        git commit -m "chore(release): package.json update [skip ci]"
+#        git push origin main
+#
