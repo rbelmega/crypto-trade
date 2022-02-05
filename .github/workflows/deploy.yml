@@ -32,8 +32,8 @@ jobs:
           folder: node_modules/@rbelmega/crypto-trade
           bucket: ${{ secrets.S3_BUCKET }}
           bucket-region: ${{ secrets.S3_BUCKET_REGION }}
-          dist-id: ${{ secrets.DISTRIBUTION }}
-          invalidation: /*
+#          dist-id: ${{ secrets.DISTRIBUTION }}
+#          invalidation: /*
 #      - name: Invalidate CloudFront
 #        uses: chetan/invalidate-cloudfront-action@v2
 #
