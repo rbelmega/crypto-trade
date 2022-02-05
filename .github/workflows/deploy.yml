@@ -12,15 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 #      DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
 #      PATHS: "/*"
 #      AWS_REGION: "us-east-1"
 
     steps:
-#      - name: checks out code
-#        uses: actions/checkout@v2
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
@@ -28,14 +26,14 @@ jobs:
           registry-url: https://npm.pkg.github.com
       - run: npm i @rbelmega/crypto-trade@${{ github.event.inputs.tag }}
 
-#      - name: Deploying to S3
-#        uses: Reggionick/s3-deploy@v3.1.1
-#        with:
-#          folder: node_modules/@rbelmega/crypto-trade
-#          bucket: ${{ secrets.S3_BUCKET }}
-#          bucket-region: ${{ secrets.S3_BUCKET_REGION }}
-#          no-cache: true
-#          private: true
+      - name: Deploying to S3
+        uses: Reggionick/s3-deploy@v3.1.1
+        with:
+          folder: node_modules/@rbelmega/crypto-trade
+          bucket: ${{ secrets.S3_BUCKET }}
+          bucket-region: ${{ secrets.S3_BUCKET_REGION }}
+          dist-id: ${{ secrets.DISTRIBUTION }}
+          invalidation: /*
 #      - name: Invalidate CloudFront
 #        uses: chetan/invalidate-cloudfront-action@v2
 #
