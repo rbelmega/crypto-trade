@@ -19,8 +19,8 @@ jobs:
 #      AWS_REGION: "us-east-1"
 
     steps:
-      - name: checks out code
-        uses: actions/checkout@v2
+#      - name: checks out code
+#        uses: actions/checkout@v2
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
