@@ -16,7 +16,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 #      DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
 #      PATHS: "/*"
-#      AWS_REGION: "us-east-1"
+      AWS_REGION: "us-east-1"
 
     steps:
       - name: Use Node.js
