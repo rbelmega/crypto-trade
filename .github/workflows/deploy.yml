@@ -14,9 +14,7 @@ jobs:
       NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#      DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
-#      PATHS: "/*"
-#      AWS_REGION: "us-east-1"
+      DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
 
     steps:
       - name: Use Node.js
@@ -33,12 +31,7 @@ jobs:
           bucket: ${{ secrets.S3_BUCKET }}
           bucket-region: ${{ secrets.S3_BUCKET_REGION }}
           private: true
-#          dist-id: ${{ secrets.DISTRIBUTION }}
-#          invalidation: /*
+          dist-id: ${{ secrets.DISTRIBUTION }}
+          invalidation: /*
 #      - name: Invalidate CloudFront
 #        uses: chetan/invalidate-cloudfront-action@v2
-#
-#
-#
-#
-#
